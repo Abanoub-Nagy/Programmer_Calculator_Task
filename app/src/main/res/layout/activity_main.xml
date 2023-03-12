@@ -18,7 +18,7 @@
         android:gravity="center"
         android:text="@string/title"
         android:textAllCaps="true"
-        android:textColor="#BB000000"
+        android:textColor="@color/titleColor"
         android:textSize="@dimen/textsizeTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,8 @@
             android:digits="0123456789"
             android:inputType="number"
             android:lines="1"
-            android:maxLength="10" />
+            android:maxLength="10"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -87,6 +88,7 @@
             android:layout_height="wrap_content"
             android:digits="01234567"
             android:inputType="number"
+            android:maxLength="12"
             android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -107,6 +109,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:digits="0123456789abcdefABCDEF"
+            android:maxLength="9"
             android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 

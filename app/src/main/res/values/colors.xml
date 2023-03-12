@@ -11,4 +11,5 @@
     <color name="statusBarColor">#864AFF</color>
     <color name="colorBtn">#5E35B1</color>
     <color name="colorBtnWithClick">#864AFF</color>
+    <color name="titleColor">#BB000000</color>
 </resources>

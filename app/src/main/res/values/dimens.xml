@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textsizeButton">16sp</dimen>
+    <dimen name="largeMargin">42dp</dimen>
+    <dimen name="normalMargin">16dp</dimen>
+    <dimen name="paddingEndBackground">16dp</dimen>
+    <dimen name="paddingStartBackground">16dp</dimen>
+    <dimen name="textsizeTitle">24sp</dimen>
+    <dimen name="radiusBtn">24dp</dimen>
+</resources>

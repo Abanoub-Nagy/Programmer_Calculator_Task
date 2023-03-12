@@ -6,8 +6,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var clearInputBtn: Button
@@ -68,10 +66,6 @@ class MainActivity : AppCompatActivity() {
                     numberOctal.setText(oct)
                     numberHexadicimal.setText(hexa)
                 }
-                if (newDec == null) {
-                    val e = "please enter only 0 or 1"
-                    Toast.makeText(this@MainActivity, e, Toast.LENGTH_SHORT).show()
-                }
             }
         })
 
@@ -92,10 +86,6 @@ class MainActivity : AppCompatActivity() {
                     numberOctal.setText(oct)
                     numberHexadicimal.setText(hexa)
                 }
-                if (newDec == null) {
-                    val e = "please enter only 0 or 9"
-                    Toast.makeText(this@MainActivity, e, Toast.LENGTH_SHORT).show()
-                }
             }
         })
 
@@ -115,10 +105,6 @@ class MainActivity : AppCompatActivity() {
                     numberOctal.setText(oct)
                     numberBinary.setText(bin)
                 }
-                if (newDec == null) {
-                    val e = "please enter only 0 or 9"
-                    Toast.makeText(this@MainActivity, e, Toast.LENGTH_SHORT).show()
-                }
             }
         })
 
@@ -137,10 +123,6 @@ class MainActivity : AppCompatActivity() {
                     numberDecimal.setText(dec.toString())
                     numberBinary.setText(bin)
                     numberHexadicimal.setText(hexa)
-                }
-                if (newDec == null) {
-                    val e = "please enter only 0 or 7"
-                    Toast.makeText(this@MainActivity, e, Toast.LENGTH_SHORT).show()
                 }
             }
         })

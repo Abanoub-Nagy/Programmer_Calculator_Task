@@ -2,14 +2,13 @@ package com.example.programmer_calculator_task
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.Button
 import android.widget.EditText
-class MainActivity : AppCompatActivity() {
 
+class MainActivity : AppCompatActivity() {
+    lateinit var convertButton: Button
     lateinit var clearInputBtn: Button
-    lateinit var numberHexadicimal: EditText
+    lateinit var numberHexadecimal: EditText
     lateinit var numberOctal: EditText
     lateinit var numberBinary: EditText
     lateinit var numberDecimal: EditText
@@ -24,18 +23,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initializeViews()
-        setListeners()
 
         clearInputBtn.setOnClickListener {
             clearInput()
         }
 
-
+        convertButton.setOnClickListener {
+            convert(numberDecimal, 10)
+            convert(numberBinary, 2)
+            convert(numberOctal, 8)
+            convert(numberHexadecimal, 16)
+        }
     }
 
     private fun initializeViews() {
+        convertButton = findViewById(R.id.btnConvert)
         clearInputBtn = findViewById(R.id.btnClearInput)
-        numberHexadicimal = findViewById(R.id.textInputHexadecimal)
+        numberHexadecimal = findViewById(R.id.textInputHexadecimal)
         numberOctal = findViewById(R.id.textInputOctal)
         numberBinary = findViewById(R.id.textInputBinary)
         numberDecimal = findViewById(R.id.textInputDecimal)
@@ -45,87 +49,29 @@ class MainActivity : AppCompatActivity() {
         numberDecimal.text?.clear()
         numberBinary.text?.clear()
         numberOctal.text?.clear()
-        numberHexadicimal.text?.clear()
-
+        numberHexadecimal.text?.clear()
     }
 
-    private fun setListeners() {
-        numberBinary.addTextChangedListener(object : TextWatcher {
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+    private fun convert(view: EditText, base: Int) {
+        val newDec = view.text.toString().toLongOrNull(base)
+        if (newDec != null && newDec != dec) {
+            dec = newDec
+            oct = dec.toString(8)
+            hexa = dec.toString(16)
+            bin = dec.toString(2)
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                val newDec = s.toString().toLongOrNull(2)
-                if (newDec != null && newDec != dec) {
-                    dec = s.toString().toLongOrNull(2)!!
-                    oct = dec.toString(8)
-                    hexa = dec.toString(16)
-
-                    numberDecimal.setText(dec.toString())
-                    numberOctal.setText(oct)
-                    numberHexadicimal.setText(hexa)
-                }
+            if (view != numberBinary) {
+                numberBinary.setText(bin)
             }
-        })
-
-        numberDecimal.addTextChangedListener(object : TextWatcher {
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                val newDec = s.toString().toLongOrNull(10)
-                if (newDec != null && newDec != dec) {
-                    dec = s.toString().toLongOrNull(10)!!
-                    oct = dec.toString(8)
-                    hexa = dec.toString(16)
-                    bin = dec.toString(2)
-
-                    numberBinary.setText(bin)
-                    numberOctal.setText(oct)
-                    numberHexadicimal.setText(hexa)
-                }
+            if (view != numberDecimal) {
+                numberDecimal.setText(dec.toString())
             }
-        })
-
-        numberHexadicimal.addTextChangedListener(object : TextWatcher {
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                val newDec = s.toString().toLongOrNull(16)
-                if (newDec != null && newDec != dec) {
-                    dec = s.toString().toLongOrNull(16)!!
-                    oct = dec.toString(8)
-                    bin = dec.toString(2)
-
-                    numberDecimal.setText(dec.toString())
-                    numberOctal.setText(oct)
-                    numberBinary.setText(bin)
-                }
+            if (view != numberOctal) {
+                numberOctal.setText(oct)
             }
-        })
-
-        numberOctal.addTextChangedListener(object : TextWatcher {
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun afterTextChanged(s: Editable?) {
-                val newDec = s.toString().toLongOrNull(8)
-                if (newDec != null && newDec != dec) {
-                    dec = s.toString().toLongOrNull(8)!!
-                    hexa = dec.toString(16)
-                    bin = dec.toString(2)
-
-                    numberDecimal.setText(dec.toString())
-                    numberBinary.setText(bin)
-                    numberHexadicimal.setText(hexa)
-                }
+            if (view != numberHexadecimal) {
+                numberHexadecimal.setText(hexa)
             }
-        })
-
+        }
     }
 }

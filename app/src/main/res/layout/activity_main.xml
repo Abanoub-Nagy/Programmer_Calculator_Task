@@ -27,7 +27,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/decimalNum"
+        android:id="@+id/numDecimal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/binaryNum"
+        android:id="@+id/numBinary"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/decimalNum">
+        app:layout_constraintTop_toBottomOf="@id/numDecimal">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputBinary"
@@ -71,7 +71,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/octalNum"
+        android:id="@+id/numOctal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/binaryNum">
+        app:layout_constraintTop_toBottomOf="@id/numBinary">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputOctal"
@@ -93,7 +93,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/hexadecimalNum"
+        android:id="@+id/numHexadecimal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,13 +102,13 @@
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/octalNum">
+        app:layout_constraintTop_toBottomOf="@id/numOctal">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textInputHexadecimal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="0123456789abcdefABCDEF"
+            android:digits="0123456789abc-defABC-DEF"
             android:maxLength="9"
             android:lines="1" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -124,10 +124,26 @@
         android:text="@string/clearButton"
         android:textAllCaps="true"
         android:textColor="@color/white"
-        android:textSize="@dimen/textsizeButton"
+        android:textSize="@dimen/textSizeButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/hexadecimalNum" />
+        app:layout_constraintTop_toBottomOf="@id/numHexadecimal" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnConvert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/normalMargin"
+        android:background="@drawable/btn_design"
+        android:fontFamily="@font/roboto"
+        android:text="@string/convert"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnClearInput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

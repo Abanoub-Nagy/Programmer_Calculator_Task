@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textsizeButton">16sp</dimen>
+    <dimen name="textSizeButton">16sp</dimen>
     <dimen name="largeMargin">42dp</dimen>
     <dimen name="normalMargin">16dp</dimen>
     <dimen name="paddingEndBackground">16dp</dimen>

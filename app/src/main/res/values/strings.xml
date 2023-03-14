@@ -6,4 +6,5 @@
     <string name="hexadecimal_operation">Hexadecimal</string>
     <string name="binary_operation">Binary</string>
     <string name="octal_operation">Octal</string>
+    <string name="convert">convert</string>
 </resources>
